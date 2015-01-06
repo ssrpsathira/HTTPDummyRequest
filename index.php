@@ -13,7 +13,9 @@ for ($i = 0; $i < 100000; $i++) {
     $randomSoundLevel = floatVal(rand(30, 130) . '.' . rand(0, 9) . '' . rand(0, 9));
     $randomTimeStamp = rand(1398643200, 1418542140);
 
-    $data = array('metadata' => array('service' => 'noise', 'mode' => 'upload'), 'rawdata' => array('latitude' => $randomLatitude, 'longitude' => $randomLongitude, 'noise_level' => $randomSoundLevel, 'date_time' => $randomTimeStamp));
+    $randomImei = rand(0, 9);
+
+    $data = array('metadata' => array('service' => 'noise', 'mode' => 'upload', 'imei' => '12345678901234' . $randomImei, 'feature' => 'noiseData'), 'rawdata' => array('latitude' => $randomLatitude, 'longitude' => $randomLongitude, 'noise_level' => $randomSoundLevel, 'date_time' => $randomTimeStamp));
 
     $data_string = json_encode($data);
 
