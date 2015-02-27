@@ -10,7 +10,7 @@ for ($i = 0; $i < 100000; $i++) {
     } else {
         $randomLongitude = floatVal($randomLongitude . '.' . rand(0, 9) . '' . rand(0, 9) . '' . rand(0, 9) . '' . rand(0, 9) . '' . rand(0, 9) . '' . rand(0, 9) . '' . rand(0, 9) . '' . rand(0, 9));
     }
-    $randomSoundLevel = floatVal(rand(30, 130) . '.' . rand(0, 9) . '' . rand(0, 9));
+    $randomSoundLevel = floatVal(rand(10, 110) . '.' . rand(0, 9) . '' . rand(0, 9));
     $randomTimeStamp = rand(1398643200, 1418542140);
 
     $randomImei = rand(0, 9);
@@ -24,6 +24,7 @@ for ($i = 0; $i < 100000; $i++) {
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+//    curl_setopt($ch, CURLOPT_PROXY, "cache.mrt.ac.lk:3128");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         'Content-Type: application/json',
