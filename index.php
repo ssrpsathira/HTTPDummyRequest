@@ -1,5 +1,6 @@
 <?php
 
+set_time_limit(0);
 for ($i = 0; $i < 100000; $i++) {
     $randomLatitude = floatVal(rand(6, 9) . '.' . rand(0, 9) . '' . rand(0, 9) . '' . rand(0, 9) . '' . rand(0, 9) . '' . rand(0, 9) . '' . rand(0, 9) . '' . rand(0, 9) . '' . rand(0, 9));
     $randomLongitude = rand(79, 81);
@@ -23,6 +24,8 @@ for ($i = 0; $i < 100000; $i++) {
 
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 100000); //timeout in seconds
     curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
 //    curl_setopt($ch, CURLOPT_PROXY, "cache.mrt.ac.lk:3128");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
